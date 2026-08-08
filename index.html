@@ -376,11 +376,12 @@
 <script>
 /* ================= DATA ================= */
 const WARMUP = [
-  {name:'Neck Rolls', sets:1, reps:'30 Sec'},
-  {name:'Shoulder Rolls', sets:1, reps:'30 Sec'},
-  {name:'Arm Circles', sets:1, reps:'30 Sec Forward + 30 Sec Backward'},
-  {name:'Hip Circles', sets:1, reps:'30 Sec'},
-  {name:'Light Jogging or Marching in Place', sets:1, reps:'2–3 Min'},
+  {name:'Neck Rolls', sets:1, reps:'30 Sec', m:'circle'},
+  {name:'Shoulder Rolls', sets:1, reps:'30 Sec', m:'circle'},
+  {name:'Arm Circles', sets:1, reps:'30 Sec Fwd + 30 Sec Back', m:'circle'},
+  {name:'Hip Circles', sets:1, reps:'30 Sec', m:'circle'},
+  {name:'Bodyweight Squats', sets:1, reps:'10 Reps', m:'bounce'},
+  {name:'Light Jogging or Marching in Place', sets:1, reps:'2 Min', m:'walk'},
 ];
 
 const PROGRAM = [
@@ -389,24 +390,28 @@ const PROGRAM = [
     groups:[
       {label:'Warm-Up', items: WARMUP},
       {label:'Full Body', items:[
-        {name:'Jumping Jacks', sets:3, reps:'30 Sec'},
-        {name:'Bodyweight Squats', sets:3, reps:'15 Reps'},
-        {name:'Wall Push-Ups', sets:3, reps:'12 Reps'},
-        {name:'Glute Bridge', sets:3, reps:'15 Reps'},
-        {name:'Plank', sets:3, reps:'20–30 Sec'},
+        {name:'Jumping Jacks', sets:3, reps:'40 Sec', m:'bounce'},
+        {name:'Bodyweight Squats', sets:4, reps:'15 Reps', m:'bounce'},
+        {name:'Incline Push-ups (bed/table)', sets:4, reps:'12 Reps', m:'pushup'},
+        {name:'Reverse Lunges', sets:3, reps:'10 Reps Each Leg', m:'bounce'},
+        {name:'Glute Bridge', sets:4, reps:'20 Reps', m:'hold'},
+        {name:'Superman Hold', sets:3, reps:'25 Sec', m:'hold'},
+        {name:'Plank', sets:3, reps:'30–40 Sec', m:'hold'},
       ]}
     ]
   },
   {
-    id:'sun', day:'Sunday', title:'Sunday — Lower Body', type:'lift', accent:'--c-sun',
+    id:'sun', day:'Sunday', title:'Sunday — Lower Body + Glutes', type:'lift', accent:'--c-sun',
     groups:[
       {label:'Warm-Up', items: WARMUP},
-      {label:'Lower Body', items:[
-        {name:'Bodyweight Squats', sets:3, reps:'15 Reps'},
-        {name:'Reverse Lunges', sets:3, reps:'10 Reps Each Leg'},
-        {name:'Glute Bridge', sets:3, reps:'20 Reps'},
-        {name:'Standing Calf Raises', sets:3, reps:'20 Reps'},
-        {name:'Wall Sit', sets:3, reps:'30–45 Sec'},
+      {label:'Lower Body + Glutes', items:[
+        {name:'Bodyweight Squats', sets:4, reps:'15 Reps', m:'bounce'},
+        {name:'Reverse Lunges', sets:3, reps:'12 Reps Each Leg', m:'bounce'},
+        {name:'Bulgarian Split Squats (chair/bed)', sets:3, reps:'8–10 Reps Each Leg', m:'bounce'},
+        {name:'Glute Bridge', sets:4, reps:'20 Reps', m:'hold'},
+        {name:'Single-Leg Glute Bridge', sets:3, reps:'10 Reps Each Leg', m:'hold'},
+        {name:'Standing Calf Raises', sets:4, reps:'25 Reps', m:'bounce'},
+        {name:'Wall Sit', sets:3, reps:'40–60 Sec', m:'hold'},
       ]}
     ]
   },
@@ -415,11 +420,13 @@ const PROGRAM = [
     groups:[
       {label:'Warm-Up', items: WARMUP},
       {label:'Core + Cardio', items:[
-        {name:'High Knees', sets:3, reps:'30 Sec'},
-        {name:'Mountain Climbers', sets:3, reps:'20 Reps'},
-        {name:'Bicycle Crunches', sets:3, reps:'15 Reps'},
-        {name:'Leg Raises', sets:3, reps:'12 Reps'},
-        {name:'Plank', sets:3, reps:'30–40 Sec'},
+        {name:'High Knees', sets:3, reps:'40 Sec', m:'bounce'},
+        {name:'Mountain Climbers', sets:3, reps:'25 Reps', m:'bounce'},
+        {name:'Bicycle Crunches', sets:3, reps:'20 Reps', m:'twist'},
+        {name:'Leg Raises', sets:3, reps:'12–15 Reps', m:'hold'},
+        {name:'Russian Twists', sets:3, reps:'16 Reps', m:'twist'},
+        {name:'Dead Bug', sets:3, reps:'12 Reps Each Side', m:'hold'},
+        {name:'Plank', sets:3, reps:'40–60 Sec', m:'hold'},
       ]}
     ]
   },
@@ -427,9 +434,13 @@ const PROGRAM = [
     id:'tue', day:'Tuesday', title:'Tuesday — Active Recovery', type:'lift', accent:'--c-tue',
     groups:[
       {label:'Active Recovery', items:[
-        {name:'Light Walking', sets:1, reps:'20–30 Min'},
-        {name:'Full Body Stretching', sets:1, reps:'15 Min'},
-        {name:'Deep Breathing', sets:1, reps:'5 Min'},
+        {name:'Light Walking', sets:1, reps:'20–30 Min', m:'walk'},
+        {name:'Full Body Stretching', sets:1, reps:'15 Min', m:'stretch'},
+        {name:'Cat-Cow Stretch', sets:2, reps:'10 Reps', m:'stretch'},
+        {name:"Child's Pose", sets:2, reps:'30–45 Sec', m:'stretch'},
+        {name:'Hip Flexor Stretch', sets:2, reps:'30 Sec Each Side', m:'stretch'},
+        {name:'Hamstring Stretch', sets:2, reps:'30 Sec Each Side', m:'stretch'},
+        {name:'Deep Breathing', sets:1, reps:'5 Min', m:'breathe'},
       ]}
     ]
   },
@@ -438,11 +449,13 @@ const PROGRAM = [
     groups:[
       {label:'Warm-Up', items: WARMUP},
       {label:'Upper Body', items:[
-        {name:'Wall Push-Ups', sets:3, reps:'15 Reps'},
-        {name:'Chair Dips', sets:3, reps:'10 Reps'},
-        {name:'Arm Circles', sets:3, reps:'30 Sec Forward + 30 Sec Backward'},
-        {name:'Plank Shoulder Taps', sets:3, reps:'12 Reps'},
-        {name:'Superman Hold', sets:3, reps:'20 Sec'},
+        {name:'Incline Push-ups (bed/table)', sets:4, reps:'12 Reps', m:'pushup'},
+        {name:'Knee Push-ups', sets:3, reps:'10–12 Reps', m:'pushup'},
+        {name:'Chair Dips', sets:3, reps:'10–12 Reps', m:'pushup'},
+        {name:'Pike Push-ups', sets:3, reps:'8–10 Reps', m:'pushup'},
+        {name:'Plank Shoulder Taps', sets:3, reps:'15 Reps Each Side', m:'twist'},
+        {name:'Superman Hold', sets:3, reps:'25–30 Sec', m:'hold'},
+        {name:'Arm Circles', sets:3, reps:'40 Sec Fwd + 40 Sec Back', m:'circle'},
       ]}
     ]
   },
@@ -451,22 +464,26 @@ const PROGRAM = [
     groups:[
       {label:'Warm-Up', items: WARMUP},
       {label:'Full Body Strength', items:[
-        {name:'Bodyweight Squats', sets:3, reps:'15 Reps'},
-        {name:'Glute Bridge', sets:3, reps:'20 Reps'},
-        {name:'Wall Push-Ups', sets:3, reps:'12 Reps'},
-        {name:'Superman Hold', sets:3, reps:'20–30 Sec'},
-        {name:'Bird Dog', sets:3, reps:'12 Reps Each Side'},
-        {name:'Plank', sets:3, reps:'30 Sec'},
+        {name:'Bodyweight Squats', sets:4, reps:'15 Reps', m:'bounce'},
+        {name:'Bulgarian Split Squats', sets:3, reps:'8–10 Reps Each Leg', m:'bounce'},
+        {name:'Glute Bridge', sets:4, reps:'20 Reps', m:'hold'},
+        {name:'Incline Push-ups', sets:4, reps:'12 Reps', m:'pushup'},
+        {name:'Bird Dog', sets:3, reps:'12 Reps Each Side', m:'hold'},
+        {name:'Superman Hold', sets:3, reps:'25–30 Sec', m:'hold'},
+        {name:'Plank', sets:3, reps:'40 Sec', m:'hold'},
       ]}
     ]
   },
   {
     id:'fri', day:'Friday', title:'Friday — Complete Rest', type:'rest', accent:'--c-fri',
     restItems:[
-      'Rest and recover',
+      'Full rest and recovery',
+      'Light walking — 20–30 min (optional)',
       'Stay hydrated',
       'Eat enough calories',
+      'Eat enough protein',
       'Sleep 7.5–9 hours',
+      'No heavy workout',
     ]
   },
 ];
